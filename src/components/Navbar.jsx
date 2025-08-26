@@ -25,7 +25,7 @@ const Navbar = () => {
                     </div>
                     <div className='flex items-center gap-3'>
                         <img className='w-6' src='/happy.png' alt="" />
-                        <p className="text-2xl font-bold hidden sm:block">
+                        <p className="text-2xl font-bold text-gray-800 hidden sm:block">
                             Find
                             <span className='text-[#db621f]'>My</span>
                             Roomie
@@ -39,8 +39,8 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end space-x-2">
-                    <a className="btn bg-black text-white">Login</a>
-                    <a className="btn bg-black text-white">Signup</a>
+                    <a className="btn bg-gray-800 text-white">Login</a>
+                    <a className="btn bg-gray-800 text-white">Signup</a>
                 </div>
             </div>
         </div>
