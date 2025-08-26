@@ -10,6 +10,18 @@ export const router = createBrowserRouter([
             {
                 index: true,
                 element:<Home></Home>
+            },
+            {
+                path: '/browse-listing',
+                element: <h1>browse listing</h1>
+            },
+            {
+                path: '/add-to-find-roommate',
+                element: <h1>add to find roommate</h1>
+            },
+            {
+                path: '/my-listing',
+                element: <h1>my listing</h1>
             }
         ]
     }
