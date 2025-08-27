@@ -19,17 +19,17 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-base font-bold text-gray-700">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-base font-bold text-base-300">
                             {navLinks}
                         </ul>
                     </div>
                     <div className='flex items-center gap-3'>
-                        <img className='w-6' src='/happy.png' alt="" />
-                        <p className="text-2xl font-bold text-gray-800 hidden sm:block">
+                        <img className='w-7' src='/happy.png' alt="" />
+                        <p className="text-3xl font-bold text-base-300 hidden sm:block">
                             Find
-                            <span className='text-[#db621f]'>My</span>
+                            <span className='text-secondary'>My</span>
                             Roomie
-                            <span className='text-[#db621f]'>.</span>
+                            <span className='text-secondary'>.</span>
                         </p>
                     </div>
                 </div>
@@ -39,8 +39,8 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end space-x-2">
-                    <Link to={'/login'} className="btn bg-gray-800 text-white">Login</Link>
-                    <Link to={'/signup'} className="btn bg-gray-800 text-white">Signup</Link>
+                    <Link to={'/login'} className="btn bg-primary hover:bg-secondary border-none text-white">Login</Link>
+                    <Link to={'/signup'} className="btn bg-primary hover:bg-secondary border-none text-white">Signup</Link>
                 </div>
             </div>
         </div>

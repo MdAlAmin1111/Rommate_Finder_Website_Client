@@ -20,10 +20,8 @@ const Home = () => {
         arrows: true
     };
     return (
-
-        // <div className='container mx-auto overflow: visible'>
         <div>
-            <div className="slider-container">
+            <section className="slider-container">
                 <Slider {...settings}>
                     {/* Slide 1: Hero Section */}
                     <BannerOne></BannerOne>
@@ -31,9 +29,8 @@ const Home = () => {
                     <BannerTwo></BannerTwo>
                     {/* Slide 3: Testimonials */}
                     <BannerThree></BannerThree>
-
                 </Slider>
-            </div>
+            </section>
         </div>
     );
 };

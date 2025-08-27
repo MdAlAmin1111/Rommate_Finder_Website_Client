@@ -43,23 +43,23 @@ const Signup = () => {
         <div className='min-h-screen flex justify-center items-center'>
             <div className="card bg-base-100 w-full max-w-[750px] shrink-0 border border-[#db621f10] shadow-2xl py-10">
                 <div className="card-body space-y-5">
-                    <h1 className='text-4xl font-semibold text-center text-gray-800'>Sign Up Your Account</h1>
+                    <h1 className='text-4xl font-semibold text-center text-base-300'>Sign Up Your Account</h1>
                     <form onSubmit={handleSignup} className="fieldset sm:px-20 space-y-1">
 
                         {/* name  */}
-                        <label className="label font-semibold text-xl text-gray-800">Name</label>
+                        <label className="label font-semibold text-xl text-base-300">Name</label>
                         <input required name='name' type="text" className="input w-full" placeholder="Enter Your Name" />
 
                         {/* email  */}
-                        <label className="label font-semibold text-xl text-gray-800">Email Address</label>
+                        <label className="label font-semibold text-xl text-base-300">Email Address</label>
                         <input required name='email' type="email" className="input w-full" placeholder="Enter Your Email Address" />
 
                         {/* photo url  */}
-                        <label className="label font-semibold text-xl text-gray-800">Photo Url</label>
+                        <label className="label font-semibold text-xl text-base-300">Photo Url</label>
                         <input required name='photo_url' type="text" className="input w-full" placeholder="Enter Your Photo url" />
 
                         {/* password  */}
-                        <label className="label font-semibold text-xl text-gray-800">Password</label>
+                        <label className="label font-semibold text-xl text-base-300">Password</label>
                         <input required name='password' type="password" className="input w-full" placeholder="Enter Your Password" />
 
                         <div><a className="link link-hover text-gray-600">Forgot password?</a></div>
@@ -68,10 +68,10 @@ const Signup = () => {
                         {error && <p className="text-error">${error}</p>}
 
                         {/* submit button  */}
-                        <button type='submit' className="btn btn-neutral mt-4 bg-gray-800">Sign up</button>
+                        <button type='submit' className="btn btn-neutral mt-4 bg-base-300">Sign up</button>
                     </form>
 
-                    <div className='flex items-center justify-between text-gray-800'>
+                    <div className='flex items-center justify-between text-base-300'>
                         <hr className="flex-1 border-gray-400" />
                         <span className='px-2 text-center font-medium'>or</span>
                         <hr className="flex-1 border-gray-400" />
