@@ -7,11 +7,11 @@ import Signup from "../pages/Auth/Signup";
 export const router = createBrowserRouter([
     {
         path: '/',
-        element:<MainLayout></MainLayout>,
-        children:[
+        element: <MainLayout></MainLayout>,
+        children: [
             {
                 index: true,
-                element:<Home></Home>
+                element: <Home></Home>
             },
             {
                 path: '/browse-listing',
@@ -24,19 +24,27 @@ export const router = createBrowserRouter([
             {
                 path: '/my-listing',
                 element: <h1>my listing</h1>
-            }
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/signup',
+                element: <Signup></Signup>
+            },
         ]
     },
-    {
-        path: '/login',
-        element: <Login></Login>
-    },
-    {
-        path:'/signup',
-        element:<Signup></Signup>
-    },
+    // {
+    //     path: '/login',
+    //     element: <Login></Login>
+    // },
+    // {
+    //     path: '/signup',
+    //     element: <Signup></Signup>
+    // },
     {
         path: '*',
-        element:<Signup></Signup>
+        element: <Signup></Signup>
     }
 ])

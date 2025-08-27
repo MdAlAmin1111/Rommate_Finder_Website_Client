@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
+import Swal from 'sweetalert2';
 
 const Signup = () => {
 
@@ -19,11 +20,23 @@ const Signup = () => {
         const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
         if (!passwordRegex.test(password)) {
             setError("Password must contain at least 1 uppercase, 1 lowercase, and be 6+ characters long.");
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                // html: '<p style="color:#f87171;">Password must contain at least 1 uppercase, 1 lowercase, and be 6+ characters long.</p>',
+                text: "Password must contain at least 1 uppercase, 1 lowercase, and be 6+ characters long.",
+            });
             return;
         }
         setError('');
+        // form.reset();
 
         console.log(name, email, photo_url, password);
+        Swal.fire({
+            title: "Sign up successful!",
+            icon: "success",
+            draggable: true,
+        });
     }
 
     return (
@@ -67,7 +80,7 @@ const Signup = () => {
 
                     <p className='flex items-center justify-center gap-2 text-gray-600 font-semibold'><FcGoogle size={25} /> <span>Login with Google</span></p>
 
-                    <p className='text-center font-semibold text-gray-600'>Already Have An Account? <Link to={'/login'} className='text-[#db621f]'>Login</Link></p>
+                    <p className='text-center font-semibold text-gray-600'>Already Have An Account? <Link to={'/login'} className='text-[#db621f]'>Login here</Link></p>
                 </div>
             </div>
         </div>

@@ -31,7 +31,7 @@ const Login = () => {
                     </div>
 
                     <p className='flex items-center justify-center gap-2 text-gray-600 font-semibold'><FcGoogle size={25} /> <span>Login with Google</span></p>
-                    <p className='text-center font-semibold text-gray-600'>Don't Have An Account? <Link to={'/signup'} className='text-[#db621f]'>Signup</Link></p>
+                    <p className='text-center font-semibold text-gray-600'>Don't Have An Account? <Link to={'/signup'} className='text-[#db621f]'>Signup here</Link></p>
                 </div>
             </div>
         </div>
