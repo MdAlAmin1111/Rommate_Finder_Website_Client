@@ -8,7 +8,7 @@ const Login = () => {
             <div className="card bg-base-100 w-full max-w-[750px] shrink-0 border border-[#db621f10] shadow-2xl">
                 <div className="card-body space-y-10 py-20">
                     <h1 className='text-4xl font-semibold text-center text-gray-800'>Login Your Account</h1>
-                    <form onSubmit={''} className="fieldset sm:px-20 space-y-2">
+                    <form  className="fieldset sm:px-20 space-y-2">
                         {/* email  */}
                         <label className="label font-semibold text-xl text-gray-800">Email Address</label>
                         <input required name='email' type="email" className="input w-full" placeholder="Enter Your Email Address" />
@@ -25,9 +25,9 @@ const Login = () => {
                         <button type='submit' className="btn btn-neutral mt-4 bg-gray-800">Login</button>
                     </form>
                     <div className='flex items-center justify-between text-gray-800'>
-                        <p ><hr /></p>
-                        <p className='text-center font-medium'>or</p>
-                        <p><hr /></p>
+                        <hr className="flex-1 border-gray-400" />
+                        <span className='px-2 text-center font-medium'>or</span>
+                        <hr className="flex-1 border-gray-400" />
                     </div>
 
                     <p className='flex items-center justify-center gap-2 text-gray-600 font-semibold'><FcGoogle size={25} /> <span>Login with Google</span></p>

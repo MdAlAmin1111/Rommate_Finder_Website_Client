@@ -1,14 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
 
 const Signup = () => {
+
+    const [error, setError] = useState('');
+
+    const handleSignup = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const formData = new FormData(form);
+
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const photo_url = formData.get('photo_url');
+        const password = formData.get('password');
+
+        const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+        if (!passwordRegex.test(password)) {
+            setError("Password must contain at least 1 uppercase, 1 lowercase, and be 6+ characters long.");
+            return;
+        }
+        setError('');
+
+        console.log(name, email, photo_url, password);
+    }
+
     return (
         <div className='min-h-screen flex justify-center items-center'>
             <div className="card bg-base-100 w-full max-w-[750px] shrink-0 border border-[#db621f10] shadow-2xl py-10">
                 <div className="card-body space-y-5">
                     <h1 className='text-4xl font-semibold text-center text-gray-800'>Sign Up Your Account</h1>
-                    <form onSubmit={''} className="fieldset sm:px-20 space-y-1">
+                    <form onSubmit={handleSignup} className="fieldset sm:px-20 space-y-1">
 
                         {/* name  */}
                         <label className="label font-semibold text-xl text-gray-800">Name</label>
@@ -27,19 +50,20 @@ const Signup = () => {
                         <input required name='password' type="password" className="input w-full" placeholder="Enter Your Password" />
 
                         <div><a className="link link-hover text-gray-600">Forgot password?</a></div>
-                        {/* error message  */}
 
-                        {/* {error && <p className="text-error">${error}</p>} */}
+                        {/* error message  */}
+                        {error && <p className="text-error">${error}</p>}
 
                         {/* submit button  */}
                         <button type='submit' className="btn btn-neutral mt-4 bg-gray-800">Sign up</button>
                     </form>
 
                     <div className='flex items-center justify-between text-gray-800'>
-                        <p ><hr /></p>
-                        <p className='text-center font-medium'>or</p>
-                        <p><hr /></p>
+                        <hr className="flex-1 border-gray-400" />
+                        <span className='px-2 text-center font-medium'>or</span>
+                        <hr className="flex-1 border-gray-400" />
                     </div>
+
 
                     <p className='flex items-center justify-center gap-2 text-gray-600 font-semibold'><FcGoogle size={25} /> <span>Login with Google</span></p>
 
