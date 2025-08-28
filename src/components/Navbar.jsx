@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
-    const { userInfo } = useContext(AuthContext);
+    const { userInfo, userLogout } = useContext(AuthContext);
 
     const navLinks = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
@@ -11,6 +11,8 @@ const Navbar = () => {
         <li><NavLink to={'/add-to-find-roommate'}>Add to Find Roommate</NavLink></li>
         <li><NavLink to={'/my-listing'}>My Listing</NavLink></li>
     </>
+
+    // const handleLogout = () 
 
     return (
         <div className='bg-base-100 shadow-sm'>
@@ -46,12 +48,24 @@ const Navbar = () => {
                 {
                     userInfo
                         ?
-                        <div className="navbar-end space-x-4">
-                            <Link to={'/'} className="btn bg-primary hover:bg-secondary border-none text-white">Logout</Link>
-                            <div className="avatar">
-                                <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
-                                    <img src={userInfo.photoURL} />
+                        <div className='navbar-end'>
+                            <div className="dropdown dropdown-end dropdown-hover relative">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full ring-2 ring-primary ring-offset-2 ring-offset-base-100">
+                                        <img src={userInfo.photoURL} alt="User Avatar" />
+                                    </div>
                                 </div>
+                                <ul
+                                    tabIndex={0}
+                                    className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 text-center absolute top-10"
+                                >
+                                    <li>
+                                        <span className="font-semibold text-base-300">{userInfo.displayName}</span>
+                                    </li>
+                                    <li>
+                                        <Link to="/" onClick={userLogout} className="btn bg-primary hover:bg-secondary border-none text-white w-full mt-1">Logout</Link>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                         :

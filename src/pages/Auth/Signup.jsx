@@ -8,7 +8,7 @@ import { auth } from '../../firebase/firebase.config';
 
 const Signup = () => {
     const [error, setError] = useState('');
-    const { createUser, userInfo } = useContext(AuthContext);
+    const { createUser, userInfo, setUserInfo } = useContext(AuthContext);
 
     const handleSignup = (e) => {
         e.preventDefault();
@@ -53,7 +53,12 @@ const Signup = () => {
                     photoURL: photo_url
                 })
                     .then(() => {
-
+                        // 👇 manually context update
+                        setUserInfo({
+                            ...auth.currentUser,
+                            displayName: name,
+                            photoURL: photo_url
+                        });
                     })
                     .catch(() => {
 
