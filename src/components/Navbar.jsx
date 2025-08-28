@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../context/AuthContext';
 
 const Navbar = () => {
+    const { userInfo } = useContext(AuthContext);
 
     const navLinks = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
@@ -9,6 +11,7 @@ const Navbar = () => {
         <li><NavLink to={'/add-to-find-roommate'}>Add to Find Roommate</NavLink></li>
         <li><NavLink to={'/my-listing'}>My Listing</NavLink></li>
     </>
+
     return (
         <div className='bg-base-100 shadow-sm'>
             <div className="navbar container mx-auto ">
@@ -38,10 +41,27 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <div className="navbar-end space-x-2">
-                    <Link to={'/login'} className="btn bg-primary hover:bg-secondary border-none text-white">Login</Link>
-                    <Link to={'/signup'} className="btn bg-primary hover:bg-secondary border-none text-white">Signup</Link>
-                </div>
+
+                {/* conditional rendering according to user existence */}
+                {
+                    userInfo
+                        ?
+                        <div className="navbar-end space-x-4">
+                            <Link to={'/'} className="btn bg-primary hover:bg-secondary border-none text-white">Logout</Link>
+                            <div className="avatar">
+                                <div className="ring-primary ring-offset-base-100 w-10 rounded-full ring-2 ring-offset-2">
+                                    <img src={userInfo.photoURL} />
+                                </div>
+                            </div>
+                        </div>
+                        :
+                        <div className="navbar-end space-x-4">
+                            <Link to={'/login'} className="btn bg-primary hover:bg-secondary border-none text-white">Login</Link>
+                            <Link to={'/signup'} className="btn bg-primary hover:bg-secondary border-none text-white">Signup</Link>
+                        </div>
+                }
+
+
             </div>
         </div>
     );

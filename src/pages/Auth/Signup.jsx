@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../context/AuthContext';
+import { updateProfile } from 'firebase/auth';
+import { auth } from '../../firebase/firebase.config';
 
 const Signup = () => {
-
     const [error, setError] = useState('');
+    const { createUser, userInfo } = useContext(AuthContext);
 
     const handleSignup = (e) => {
         e.preventDefault();
+        setError('');
         const form = e.target;
         const formData = new FormData(form);
 
@@ -17,9 +21,13 @@ const Signup = () => {
         const photo_url = formData.get('photo_url');
         const password = formData.get('password');
 
+
+        // password validation
         const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
         if (!passwordRegex.test(password)) {
             setError("Password must contain at least 1 uppercase, 1 lowercase, and be 6+ characters long.");
+
+            // showing error alert
             Swal.fire({
                 icon: "error",
                 title: "Oops...",
@@ -28,20 +36,51 @@ const Signup = () => {
             });
             return;
         }
-        setError('');
+
+        // create user  with email and password
+        createUser(email, password)
+            .then(() => {
+                // success alert
+                Swal.fire({
+                    title: "Sign up successful!",
+                    icon: "success",
+                    draggable: true,
+                });
+
+                // update signed up user profile
+                updateProfile(auth.currentUser, {
+                    displayName: name,
+                    photoURL: photo_url
+                })
+                    .then(() => {
+
+                    })
+                    .catch(() => {
+
+                    })
+
+            })
+            .catch((firebaseError) => {
+                const errorMessage = firebaseError.message;
+                setError(errorMessage);
+
+                // showing error alert
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: errorMessage,
+                });
+            })
+
+
         // form.reset();
 
-        console.log(name, email, photo_url, password);
-        Swal.fire({
-            title: "Sign up successful!",
-            icon: "success",
-            draggable: true,
-        });
     }
+    console.log(userInfo);
 
     return (
         <div className='min-h-screen flex justify-center items-center'>
-            <div className="card bg-base-100 w-full max-w-[750px] shrink-0 border border-[#db621f10] shadow-2xl py-10">
+            <div className="card bg-base-100 w-full max-w-[750px] shrink-0 border border-[#db621f10] shadow-2xl py-8">
                 <div className="card-body space-y-5">
                     <h1 className='text-4xl font-semibold text-center text-base-300'>Sign Up Your Account</h1>
                     <form onSubmit={handleSignup} className="fieldset sm:px-20 space-y-1">
