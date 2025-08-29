@@ -30,12 +30,7 @@ const Navbar = () => {
                     </div>
                     <div className='flex items-center gap-3'>
                         <img className='w-7' src='/happy.png' alt="" />
-                        <p className="text-3xl font-bold text-base-300 hidden sm:block">
-                            Find
-                            <span className='text-secondary'>My</span>
-                            Roomie
-                            <span className='text-secondary'>.</span>
-                        </p>
+                        <p className="text-3xl font-bold text-base-300 hidden sm:block">Find<span className='text-secondary'>My</span>Roomie<span className='text-secondary'>.</span></p>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">

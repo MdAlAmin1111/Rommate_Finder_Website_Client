@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
-import { createUserWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from './firebase.config';
 
 const AuthProvider = ({ children }) => {
@@ -8,8 +8,11 @@ const AuthProvider = ({ children }) => {
 
     // Authentication related tasks
     const createUser = (email, password) => {
-        console.log("createUser function has been called in AuthProvider with ", email, 'and', password);
         return createUserWithEmailAndPassword(auth, email, password);
+    }
+
+    const loginUser =(email, password)=>{
+        return signInWithEmailAndPassword(auth, email, password);
     }
 
     const userLogout = () => {
@@ -20,7 +23,6 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUserInfo(currentUser);
-            console.log(currentUser);
         });
         return () => {
             unsubscribe()
@@ -28,9 +30,10 @@ const AuthProvider = ({ children }) => {
     }, [])
 
     const authData = {
-        createUser,
         userInfo,
         setUserInfo,
+        createUser,
+        loginUser,
         userLogout
 
     };

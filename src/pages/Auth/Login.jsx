@@ -1,14 +1,54 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
+import { AuthContext } from '../../context/AuthContext';
+import Swal from 'sweetalert2';
+
+
 
 const Login = () => {
+    const [error, setError] = useState('');
+    const { loginUser } = useContext(AuthContext);
+
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        setError('');
+        const form = e.target;
+        const formData = new FormData(form);
+        const email = formData.get('email');
+        const password = formData.get('password');
+        console.log(email, password);
+
+        loginUser(email, password)
+            .then(() => {
+                // success alert
+                Swal.fire({
+                    title: "Login successful!",
+                    icon: "success",
+                    draggable: true,
+                });
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setError(errorMessage);
+                // showing error alert
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: errorMessage,
+                });
+            })
+
+
+    }
+
     return (
         <div className='min-h-screen flex justify-center items-center'>
-            <div className="card bg-base-100 w-full max-w-[750px] shrink-0 border border-[#db621f10] shadow-2xl">
+            <div className="card bg-base-100 w-full max-w-[750px] shrink-0 shadow-2xl">
                 <div className="card-body space-y-10 py-20">
                     <h1 className='text-4xl font-semibold text-center text-base-300'>Login Your Account</h1>
-                    <form  className="fieldset sm:px-20 space-y-2">
+                    <form onSubmit={handleLogin} className="fieldset sm:px-20 space-y-2">
                         {/* email  */}
                         <label className="label font-semibold text-xl text-base-300">Email Address</label>
                         <input required name='email' type="email" className="input w-full" placeholder="Enter Your Email Address" />
@@ -17,9 +57,9 @@ const Login = () => {
                         <input required name='password' type="password" className="input w-full" placeholder="Enter Your Password" />
 
                         <div><a className="link link-hover text-gray-600">Forgot password?</a></div>
-                        {/* error message  */}
 
-                        {/* {error && <p className="text-error">${error}</p>} */}
+                        {/* error message  */}
+                        {error && <p className="text-error">${error}</p>}
 
                         {/* submit button  */}
                         <button type='submit' className="btn btn-neutral mt-4 bg-base-300">Login</button>

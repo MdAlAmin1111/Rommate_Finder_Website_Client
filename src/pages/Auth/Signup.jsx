@@ -8,7 +8,7 @@ import { auth } from '../../firebase/firebase.config';
 
 const Signup = () => {
     const [error, setError] = useState('');
-    const { createUser, userInfo, setUserInfo } = useContext(AuthContext);
+    const { createUser, setUserInfo } = useContext(AuthContext);
 
     const handleSignup = (e) => {
         e.preventDefault();
@@ -81,7 +81,6 @@ const Signup = () => {
         // form.reset();
 
     }
-    console.log(userInfo);
 
     return (
         <div className='min-h-screen flex justify-center items-center'>
