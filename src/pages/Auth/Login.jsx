@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 import Swal from 'sweetalert2';
 
@@ -9,6 +9,8 @@ import Swal from 'sweetalert2';
 const Login = () => {
     const [error, setError] = useState('');
     const { loginUser, loginWithGoogle } = useContext(AuthContext);
+    const location = useLocation();
+    const navigate = useNavigate();
 
 
     const handleLogin = (e) => {
@@ -18,7 +20,6 @@ const Login = () => {
         const formData = new FormData(form);
         const email = formData.get('email');
         const password = formData.get('password');
-        console.log(email, password);
 
         loginUser(email, password)
             .then(() => {
@@ -28,6 +29,8 @@ const Login = () => {
                     icon: "success",
                     draggable: true,
                 });
+                navigate(location.state ? location.state : '/');
+
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -65,7 +68,7 @@ const Login = () => {
     }
 
     return (
-        <div className='min-h-screen flex justify-center items-center'>
+        <div className='min-h-screen flex justify-center items-center mx-2 mt-10'>
             <div className="card bg-base-100 w-full max-w-[750px] shrink-0 shadow-2xl">
                 <div className="card-body space-y-10 py-20">
                     <h1 className='text-4xl font-semibold text-center text-base-300'>Login Your Account</h1>

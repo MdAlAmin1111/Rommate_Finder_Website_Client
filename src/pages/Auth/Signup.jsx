@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../context/AuthContext';
 import { updateProfile } from 'firebase/auth';
@@ -9,6 +9,7 @@ import { auth } from '../../firebase/firebase.config';
 const Signup = () => {
     const [error, setError] = useState('');
     const { createUser, setUserInfo } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleSignup = (e) => {
         e.preventDefault();
@@ -59,6 +60,7 @@ const Signup = () => {
                             displayName: name,
                             photoURL: photo_url
                         });
+                        navigate("/");
                     })
                     .catch(() => {
 
@@ -83,7 +85,7 @@ const Signup = () => {
     }
 
     return (
-        <div className='min-h-screen flex justify-center items-center'>
+        <div className='min-h-screen flex justify-center items-center mx-2 mt-10'>
             <div className="card bg-base-100 w-full max-w-[750px] shrink-0 border border-[#db621f10] shadow-2xl py-8">
                 <div className="card-body space-y-5">
                     <h1 className='text-4xl font-semibold text-center text-base-300'>Sign Up Your Account</h1>

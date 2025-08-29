@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Auth/Login";
 import Signup from "../pages/Auth/Signup";
 import ErrorPage from "../pages/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
     {
@@ -20,11 +21,15 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/add-to-find-roommate',
-                element: <h1>add to find roommate</h1>
+                element: <PrivateRoute>
+                    <h1>add to find roommate</h1>
+                </PrivateRoute>
             },
             {
                 path: '/my-listing',
-                element: <h1>my listing</h1>
+                element: <PrivateRoute>
+                    <h1>my listing</h1>
+                </PrivateRoute>
             },
             {
                 path: '/login',

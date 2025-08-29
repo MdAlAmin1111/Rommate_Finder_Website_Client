@@ -5,6 +5,7 @@ import { auth } from './firebase.config';
 
 const AuthProvider = ({ children }) => {
     const [userInfo, setUserInfo] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     // Authentication related tasks
     const createUser = (email, password) => {
@@ -28,6 +29,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUserInfo(currentUser);
+            setLoading(false);
         });
         return () => {
             unsubscribe()
@@ -40,9 +42,11 @@ const AuthProvider = ({ children }) => {
         createUser,
         loginUser,
         loginWithGoogle,
-        userLogout
-
+        userLogout,
+        loading,
+        setLoading
     };
+
     return (
         <AuthContext.Provider value={authData}>
             {children}
