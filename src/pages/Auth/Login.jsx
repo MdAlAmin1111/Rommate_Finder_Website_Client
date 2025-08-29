@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { loginUser } = useContext(AuthContext);
+    const { loginUser, loginWithGoogle } = useContext(AuthContext);
 
 
     const handleLogin = (e) => {
@@ -39,7 +39,28 @@ const Login = () => {
                     text: errorMessage,
                 });
             })
+    }
 
+    const handleLoginWithGoogle = () => {
+        loginWithGoogle()
+            .then(() => {
+                // success alert
+                Swal.fire({
+                    title: "Login successful!",
+                    icon: "success",
+                    draggable: true,
+                });
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setError(errorMessage);
+                // showing error alert
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: errorMessage,
+                });
+            })
 
     }
 
@@ -70,7 +91,7 @@ const Login = () => {
                         <hr className="flex-1 border-gray-400" />
                     </div>
 
-                    <p className='flex items-center justify-center gap-2 text-base-300 font-semibold'><FcGoogle size={25} /> <span>Login with Google</span></p>
+                    <p className='flex items-center justify-center gap-2 text-base-300 font-semibold'><FcGoogle onClick={handleLoginWithGoogle} size={25} className='cursor-pointer' /> <span>Login with Google</span></p>
                     <p className='text-center font-semibold text-base-300'>Don't Have An Account? <Link to={'/signup'} className='text-[#db621f]'>Signup here</Link></p>
                 </div>
             </div>
