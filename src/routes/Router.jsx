@@ -5,6 +5,7 @@ import Login from "../pages/Auth/Login";
 import Signup from "../pages/Auth/Signup";
 import ErrorPage from "../pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import AddListing from "../pages/Listings/AddListing";
 
 export const router = createBrowserRouter([
     {
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
             {
                 path: '/add-to-find-roommate',
                 element: <PrivateRoute>
-                    <h1>add to find roommate</h1>
+                    <AddListing></AddListing>
                 </PrivateRoute>
             },
             {
