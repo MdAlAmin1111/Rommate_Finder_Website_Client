@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
+
 import BannerOne from '../../components/banner/BannerOne';
 import BannerTwo from '../../components/banner/BannerTwo';
 import BannerThree from '../../components/banner/BannerThree';
@@ -21,7 +22,7 @@ const Home = () => {
     };
     return (
         <div>
-            <section className="slider-container">
+            <section className="slider-container w-full overflow-hidden">
                 <Slider {...settings}>
                     {/* Slide 1: Hero Section */}
                     <BannerOne></BannerOne>

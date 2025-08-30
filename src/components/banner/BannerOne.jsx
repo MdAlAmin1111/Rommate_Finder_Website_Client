@@ -3,7 +3,7 @@ import React from 'react';
 const BannerOne = () => {
     return (
         <div className="bg-cover bg-center" style={{ backgroundImage: `url('/roombg10.jpg')` }}>
-            <div className='container mx-auto flex justify-center py-25 px-6'>
+            <div className='container mx-auto flex justify-center py-27 sm:py-25 px-6'>
                 <div className="text-white flex flex-col gap-8 items-center">
                     <h1 className="text-4xl sm:text-7xl lg:text-8xl font-bold mb-4">The Best & Fastest <br /> Roommate Finder<span className='text-primary'>.</span></h1>
 

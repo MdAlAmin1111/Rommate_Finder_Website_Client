@@ -3,7 +3,7 @@ import React from 'react';
 const BannerThree = () => {
     return (
         <div className="bg-cover bg-center" style={{ backgroundImage: `url('/roombg4.jpg')` }}>
-            <div className='container mx-auto flex justify-center py-27 sm:py-33 px-6'>
+            <div className='container mx-auto flex justify-center py-24 sm:py-33 px-6'>
                 <div className="text-white flex flex-col gap-8 items-center">
                     <h1 className="text-4xl sm:text-7xl lg:text-8xl font-bold mb-4">What Our Users Say<span className='text-primary'>?</span></h1>
 

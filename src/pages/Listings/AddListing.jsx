@@ -9,8 +9,23 @@ const AddListing = () => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
-        const roommateListingData = Object.fromEntries(formData.entries());
-        console.log(roommateListingData);
+        const userData = Object.fromEntries(formData.entries());
+        console.log(userData);
+
+        // send data to the database
+        fetch('http://localhost:3000/api/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(userData)
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                alert('added successfully')
+                // e.target.reset();
+            })
     }
 
     return (

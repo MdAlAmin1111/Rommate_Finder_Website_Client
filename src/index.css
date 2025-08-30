@@ -16,12 +16,12 @@
     /* gray-800  */
     --color-base-300: #2d3748;
 
-     /* generally used as CTA color  */
+    /* generally used as CTA color  */
 
-     /* orange 600 */
-     --color-primary: #db621f;
-     /* orange 700 */
-     --color-secondary:#eb671e;
+    /* orange 600 */
+    --color-primary: #db621f;
+    /* orange 700 */
+    --color-secondary: #eb671e;
 }
 
 
@@ -32,9 +32,10 @@
 * {
     font-family: "Inter", sans-serif;
 }
-.review{
- color: #718096;
- color: #2d3748;
- color: #db621f;
- color: #eb671e;
+
+.review {
+    color: #718096;
+    color: #2d3748;
+    color: #db621f;
+    color: #eb671e;
 }
