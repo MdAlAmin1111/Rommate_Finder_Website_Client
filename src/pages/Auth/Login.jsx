@@ -80,7 +80,7 @@ const Login = () => {
                         <label className="label font-semibold text-xl text-base-300">Password</label>
                         <input required name='password' type="password" className="input w-full" placeholder="Enter Your Password" />
 
-                        <div><a className="link link-hover text-gray-600">Forgot password?</a></div>
+                        <div><a className="link link-hover text-base-200">Forgot password?</a></div>
 
                         {/* error message  */}
                         {error && <p className="text-error">${error}</p>}

@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
+import Swal from 'sweetalert2';
 
 const AddListing = () => {
 
@@ -13,7 +14,7 @@ const AddListing = () => {
         console.log(userData);
 
         // send data to the database
-        fetch('http://localhost:3000/api/users', {
+        fetch('http://localhost:3000/api/listings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -23,7 +24,11 @@ const AddListing = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                alert('added successfully')
+                Swal.fire({
+                    title: "Your roommate listing has been posted.",
+                    icon: "success",
+                    draggable: true
+                });
                 // e.target.reset();
             })
     }

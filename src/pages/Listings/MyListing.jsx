@@ -1,10 +1,9 @@
 import React from 'react';
 
 const MyListing = () => {
+
     return (
-        <div>
-            
-        </div>
+        <div></div>
     );
 };
 

@@ -6,6 +6,10 @@ import Signup from "../pages/Auth/Signup";
 import ErrorPage from "../pages/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import AddListing from "../pages/Listings/AddListing";
+import BrowseListing from "../pages/Listings/BrowseListing";
+import Loader from "../components/Loader";
+import MyListing from "../pages/Listings/MyListing";
+import ListingDetails from "../pages/Listings/ListingDetails";
 
 export const router = createBrowserRouter([
     {
@@ -18,7 +22,14 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/browse-listing',
-                element: <h1>browse listing</h1>
+                element: <BrowseListing></BrowseListing>,
+                loader: () => fetch('http://localhost:3000/api/listings'),
+                hydrateFallbackElement: <Loader></Loader>
+            },
+            {
+                path: '/listing-details',
+                element: <ListingDetails></ListingDetails>
+
             },
             {
                 path: '/add-to-find-roommate',
@@ -29,7 +40,7 @@ export const router = createBrowserRouter([
             {
                 path: '/my-listing',
                 element: <PrivateRoute>
-                    <h1>my listing</h1>
+                    <MyListing></MyListing>
                 </PrivateRoute>
             },
             {

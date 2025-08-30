@@ -107,7 +107,7 @@ const Signup = () => {
                         <label className="label font-semibold text-xl text-base-300">Password</label>
                         <input required name='password' type="password" className="input w-full" placeholder="Enter Your Password" />
 
-                        <div><a className="link link-hover text-gray-600">Forgot password?</a></div>
+                        <div><a className="link link-hover text-base-200">Forgot password?</a></div>
 
                         {/* error message  */}
                         {error && <p className="text-error">${error}</p>}
@@ -123,9 +123,9 @@ const Signup = () => {
                     </div>
 
 
-                    <p className='flex items-center justify-center gap-2 text-gray-600 font-semibold'><FcGoogle size={25} /> <span>Login with Google</span></p>
+                    <p className='flex items-center justify-center gap-2 text-base-200 font-semibold'><FcGoogle size={25} /> <span>Login with Google</span></p>
 
-                    <p className='text-center font-semibold text-gray-600'>Already Have An Account? <Link to={'/login'} className='text-[#db621f]'>Login here</Link></p>
+                    <p className='text-center font-semibold text-base-200'>Already Have An Account? <Link to={'/login'} className='text-[#db621f]'>Login here</Link></p>
                 </div>
             </div>
         </div>
