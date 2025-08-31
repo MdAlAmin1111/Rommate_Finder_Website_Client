@@ -1,23 +1,19 @@
 
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 const MyListing = () => {
-    const listings = [
-        {
-            id: 1,
-            title: "Looking for a roommate in Dhaka city.",
-            location: "Mirpur",
-            rent: "10,000 BDT",
-            roomType: "Single",
-        },
-        {
-            id: 2,
-            title: "Shared flat in Banani",
-            location: "Banani",
-            rent: "12,000 BDT",
-            roomType: "Shared",
-        },
-    ];
+    const { userInfo } = useContext(AuthContext);
+    const [myListingData, setMyListingData] = useState([]);
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/api/listings/${userInfo.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setMyListingData(data)
+            });
+    }, [userInfo])
+
 
     return (
         <div>
@@ -38,7 +34,7 @@ const MyListing = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {listings.map((listing) => (
+                            {myListingData?.map((listing) => (
                                 <tr key={listing.id} className="border-b hover:bg-gray-50 transition">
                                     <td className="py-3 px-4 text-[var(--color-base-300)] font-medium">
                                         {listing.title}

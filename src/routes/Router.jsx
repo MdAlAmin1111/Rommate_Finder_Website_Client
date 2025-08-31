@@ -28,7 +28,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/listing-details',
-                element: <ListingDetails></ListingDetails>
+                element: <PrivateRoute>
+                    <ListingDetails></ListingDetails>
+                </PrivateRoute>
 
             },
             {
