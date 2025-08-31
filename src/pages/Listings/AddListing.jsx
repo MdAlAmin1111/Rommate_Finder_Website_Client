@@ -3,7 +3,6 @@ import { AuthContext } from '../../context/AuthContext';
 import Swal from 'sweetalert2';
 
 const AddListing = () => {
-
     const { userInfo } = useContext(AuthContext);
 
     const handleAddRoommateListing = (e) => {
@@ -29,7 +28,7 @@ const AddListing = () => {
                     icon: "success",
                     draggable: true
                 });
-                // e.target.reset();
+                e.target.reset();
             })
     }
 

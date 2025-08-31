@@ -27,7 +27,7 @@ const BrowseListing = () => {
                         <tbody>
                             {
                                 listings.map((listing => {
-                                    return <tr className="hover:bg-gray-50">
+                                    return <tr key={listing._id} className="hover:bg-gray-50">
                                         <td className="text-[var(--color-base-300)] font-medium">
                                             {listing?.title}
                                         </td>

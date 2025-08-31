@@ -10,6 +10,7 @@ import BrowseListing from "../pages/Listings/BrowseListing";
 import Loader from "../components/Loader";
 import MyListing from "../pages/Listings/MyListing";
 import ListingDetails from "../pages/Listings/ListingDetails";
+import UpdateMyListing from "../pages/Listings/UpdateMyListing";
 
 export const router = createBrowserRouter([
     {
@@ -46,13 +47,21 @@ export const router = createBrowserRouter([
                 </PrivateRoute>
             },
             {
+                path: '/update-my-listing/:id',
+                element: <PrivateRoute>
+                    <UpdateMyListing></UpdateMyListing>
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:3000/api/listings/id/${params.id}`),
+                hydrateFallbackElement: <Loader></Loader>
+            },
+            {
                 path: '/login',
                 element: <Login></Login>
             },
             {
                 path: '/signup',
                 element: <Signup></Signup>
-            },
+            }
         ]
     },
     {

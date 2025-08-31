@@ -2,6 +2,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router';
 
 const MyListing = () => {
     const { userInfo } = useContext(AuthContext);
@@ -82,18 +83,18 @@ const MyListing = () => {
                         </thead>
                         <tbody>
                             {myListingData?.map((listing) => (
-                                <tr key={listing._id} className="border-b hover:bg-gray-50 transition">
+                                <tr key={listing._id} className="border-b border-gray-200 hover:bg-gray-50 transition">
                                     <td className="py-3 px-4 text-[var(--color-base-300)] font-medium">
                                         {listing.title}
                                     </td>
                                     <td className="py-3 px-4 text-base-200">{listing.location}</td>
-                                    <td className="py-3 px-4 text-base-200">{listing.rent}</td>
-                                    <td className="py-3 px-4 text-base-200">{listing.roomType}</td>
+                                    <td className="py-3 px-4 text-base-200">৳ {listing.rent_amount}</td>
+                                    <td className="py-3 px-4 text-base-200">{listing.room_type}</td>
                                     <td className="py-3 px-4 text-center">
                                         <div className="flex flex-col sm:flex-row sm:justify-center sm:gap-2 gap-1">
-                                            <button className="px-3 py-1 bg-[var(--color-primary)] text-white rounded hover:bg-[var(--color-secondary)] transition">
+                                            <Link to={`/update-my-listing/${listing._id}`} className="px-3 py-1 bg-[var(--color-primary)] text-white rounded hover:bg-[var(--color-secondary)] transition">
                                                 Update
-                                            </button>
+                                            </Link>
                                             <button onClick={() => handleDelete(listing._id)} className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition cursor-pointer">
                                                 Delete
                                             </button>
