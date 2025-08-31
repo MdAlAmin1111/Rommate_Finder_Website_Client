@@ -1,6 +1,7 @@
 
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthContext';
+import Swal from 'sweetalert2';
 
 const MyListing = () => {
     const { userInfo } = useContext(AuthContext);
@@ -13,6 +14,52 @@ const MyListing = () => {
                 setMyListingData(data)
             });
     }, [userInfo])
+
+    const handleDelete = (_id) => {
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log(_id);
+
+                // for delete a listing 
+                fetch(`http://localhost:3000/api/listings/${_id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(result => {
+                        console.log(result);
+                        if (result.deletedCount) {
+
+                            const remainingListing = myListingData.filter((data => data._id !== _id));
+                            setMyListingData(remainingListing);
+
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                        else {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Something went wrong!",
+                            });
+                        }
+                    })
+
+            }
+        });
+
+    }
 
 
     return (
@@ -35,7 +82,7 @@ const MyListing = () => {
                         </thead>
                         <tbody>
                             {myListingData?.map((listing) => (
-                                <tr key={listing.id} className="border-b hover:bg-gray-50 transition">
+                                <tr key={listing._id} className="border-b hover:bg-gray-50 transition">
                                     <td className="py-3 px-4 text-[var(--color-base-300)] font-medium">
                                         {listing.title}
                                     </td>
@@ -47,7 +94,7 @@ const MyListing = () => {
                                             <button className="px-3 py-1 bg-[var(--color-primary)] text-white rounded hover:bg-[var(--color-secondary)] transition">
                                                 Update
                                             </button>
-                                            <button className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition">
+                                            <button onClick={() => handleDelete(listing._id)} className="px-3 py-1 bg-red-600 text-white rounded hover:bg-red-700 transition cursor-pointer">
                                                 Delete
                                             </button>
                                         </div>
