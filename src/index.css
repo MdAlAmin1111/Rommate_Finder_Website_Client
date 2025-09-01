@@ -19,10 +19,15 @@
     /* generally used as CTA color  */
 
     /* orange 600 */
+    /* --color-primary: #771726; */
     --color-primary: #db621f;
     /* orange 700 */
+    /* --color-secondary: #AF1B2D; */
     --color-secondary: #eb671e;
 }
+
+/* #AF1B2D
+ #771726 */
 
 
 .active {

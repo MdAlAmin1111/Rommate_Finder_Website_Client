@@ -8,6 +8,11 @@ import Slider from "react-slick";
 import BannerOne from '../../components/banner/BannerOne';
 import BannerTwo from '../../components/banner/BannerTwo';
 import BannerThree from '../../components/banner/BannerThree';
+import SectionDivider from '../../components/SectionDivider';
+import HowItWorks from '../../components/HowItWorks';
+import Testimonials from '../../components/Testimonials';
+import FAQ from '../../components/FAQ';
+import FeaturedRoommates from '../../components/FeaturedRoommates';
 
 const Home = () => {
     const settings = {
@@ -32,6 +37,20 @@ const Home = () => {
                     <BannerThree></BannerThree>
                 </Slider>
             </section>
+
+            <FeaturedRoommates></FeaturedRoommates>
+
+            <SectionDivider text="Finding a great roommate should be hassle free."></SectionDivider>
+
+            <HowItWorks></HowItWorks>
+
+            <SectionDivider text="The roommate finder you can trust."></SectionDivider>
+
+            <Testimonials></Testimonials>
+
+            <SectionDivider text="It’s more than just finding a room."></SectionDivider>
+
+            <FAQ></FAQ>
         </div>
     );
 };

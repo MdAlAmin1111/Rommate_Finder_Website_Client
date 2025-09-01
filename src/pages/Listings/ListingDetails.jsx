@@ -32,6 +32,15 @@ const ListingDetails = () => {
                 console.log(result);
                 setLikeCount(likeCount + 1);
                 setShowContact(true);
+                setShowContact(true);
+                Swal.fire({
+                    title: 'Liked!',
+                    text: 'Thanks for liking 💖',
+                    icon: 'success',
+                    confirmButtonText: 'Close',
+                    confirmButtonColor: '#eb671e',
+                    timer: 800
+                });
             })
     }
 
@@ -71,7 +80,7 @@ const ListingDetails = () => {
 
                     <div className="flex justify-between border-b border-gray-200 py-2">
                         <span className="font-medium text-gray-600">Contact:</span>
-                        <span className="text-base-300">{listing.contact}</span>
+                        <span className="text-base-300">{showContact ? listing.contact : '*****'}</span>
                     </div>
 
                     <div className="flex justify-between border-b border-gray-200 py-2">
