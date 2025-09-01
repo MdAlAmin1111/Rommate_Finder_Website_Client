@@ -10,7 +10,8 @@ const AddListing = () => {
         const form = e.target;
         const formData = new FormData(form);
         const userData = Object.fromEntries(formData.entries());
-        console.log(userData);
+        // userData.likeCount = 0;
+        // console.log(userData);
 
         // send data to the database
         fetch('http://localhost:3000/api/listings', {

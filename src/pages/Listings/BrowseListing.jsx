@@ -34,8 +34,8 @@ const BrowseListing = () => {
                                         <td className="text-base-200">{listing?.location}</td>
                                         <td className="text-base-200">৳ {listing?.rent_amount}</td>
                                         <td className="text-base-200">{listing?.room_type}</td>
-                                        <td>
-                                            <Link to={'/listing-details'} className="px-4 py-1 rounded-md bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition">
+                                        <td className='flex items-center mt-4 md:mt-0'>
+                                            <Link to={`/listing-details/${listing._id}`} className="px-4 py-1 rounded-md bg-[var(--color-primary)] text-white hover:bg-[var(--color-secondary)] transition">
                                                 See More
                                             </Link>
                                         </td>

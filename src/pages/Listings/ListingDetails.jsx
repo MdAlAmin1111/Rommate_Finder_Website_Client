@@ -1,24 +1,45 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { useLoaderData } from 'react-router';
+import { AuthContext } from '../../context/AuthContext';
+import Swal from 'sweetalert2';
 
 const ListingDetails = () => {
-    const listing = {
-        _id: "68b267ee6ddccabf0796dddb",
-        title: "Looking for a roommate in Dhaka city.",
-        location: "Mirpur",
-        rent_amount: "10000",
-        room_type: "Single",
-        life_style_preference: "Night owl",
-        description: "This is description",
-        contact: "01777777771",
-        availability: "Available",
-        email: "mdalamin.iubian@gmail.com",
-        name: "Alamin",
-    };
+
+    const listing = useLoaderData();
+    const { userInfo } = useContext(AuthContext);
+
+    const [likeCount, setLikeCount] = useState(listing.likeCount || 0);
+    const [showContact, setShowContact] = useState(false);
+
+    const handleLike = () => {
+        if (userInfo?.email === listing.email) {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: 'You can not like your own post!',
+            });
+            return;
+        }
+        fetch(`http://localhost:3000/api/listings/like/${listing._id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ likeCount: likeCount + 1 }),
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+                setLikeCount(likeCount + 1);
+                setShowContact(true);
+            })
+    }
 
     return (
         <div>
             <div className="container mx-auto px-4 py-8">
-                <h1 className="text-3xl font-bold text-base-300 text-center mb-6">
+                <p className='my-2 font-bold text-error text-lg'>[ {likeCount} people interested in! ]</p>
+                <h1 className="text-3xl font-bold text-primary text-center mb-6">
                     {listing.title}
                 </h1>
 
@@ -69,7 +90,7 @@ const ListingDetails = () => {
                     </div>
 
                     <div className="text-center mt-4">
-                        <button className="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-500 transition">
+                        <button onClick={handleLike} className="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-500 transition">
                             Like
                         </button>
                     </div>

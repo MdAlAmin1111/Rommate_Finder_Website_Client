@@ -28,10 +28,12 @@ export const router = createBrowserRouter([
                 hydrateFallbackElement: <Loader></Loader>
             },
             {
-                path: '/listing-details',
+                path: '/listing-details/:id',
                 element: <PrivateRoute>
                     <ListingDetails></ListingDetails>
-                </PrivateRoute>
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:3000/api/listings/id/${params.id}`),
+                hydrateFallbackElement: <Loader></Loader>
 
             },
             {
