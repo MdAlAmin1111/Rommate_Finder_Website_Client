@@ -2,7 +2,6 @@ import React from 'react';
 import { useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 
-
 const UpdateMyListing = () => {
     const navigate = useNavigate();
 
@@ -34,16 +33,14 @@ const UpdateMyListing = () => {
 
     }
 
-
-
     return (
         <div>
-            <div className="max-w-3xl mx-auto mt-10 p-6 border border-gray-300 rounded-xl shadow-sm bg-white">
-                <h2 className="text-2xl font-semibold mb-6 text-center text-base-300">
+            <div className="max-w-3xl mx-auto my-10 p-6 border border-gray-300 rounded-xl shadow-sm bg-white dark:bg-gray-900 dark:border-gray-700">
+                <h2 className="text-2xl font-semibold mb-6 text-center text-base-300 dark:text-gray-200">
                     Update Roommate Listing
                 </h2>
 
-                <form onSubmit={handleUpdate} className="space-y-4 text-base-300">
+                <form onSubmit={handleUpdate} className="space-y-4 text-base-300 dark:text-gray-300">
                     {/* Title */}
                     <div>
                         <label className="block text-sm font-medium mb-1">Title</label>
@@ -52,7 +49,7 @@ const UpdateMyListing = () => {
                             type="text"
                             defaultValue={title}
                             placeholder="Looking for a roommate in Dhaka City"
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:focus:ring-blue-500 dark:text-gray-200"
                         />
                     </div>
 
@@ -64,7 +61,7 @@ const UpdateMyListing = () => {
                             type="text"
                             defaultValue={location}
                             placeholder="Enter location"
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:focus:ring-blue-500 dark:text-gray-200"
                         />
                     </div>
 
@@ -76,14 +73,18 @@ const UpdateMyListing = () => {
                             defaultValue={rent_amount}
                             type="number"
                             placeholder="Enter rent amount"
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:focus:ring-blue-500 dark:text-gray-200"
                         />
                     </div>
 
                     {/* Room Type */}
                     <div>
                         <label className="block text-sm font-medium mb-1">Room Type</label>
-                        <select name='room_type' defaultValue={room_type} className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300">
+                        <select
+                            name='room_type'
+                            defaultValue={room_type}
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:focus:ring-blue-500 dark:text-gray-200"
+                        >
                             <option>Single</option>
                             <option>Shared</option>
                             <option>Studio</option>
@@ -100,7 +101,7 @@ const UpdateMyListing = () => {
                             defaultValue={life_style_preference}
                             type="text"
                             placeholder="Pets, Smoking, Night Owl..."
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:focus:ring-blue-500 dark:text-gray-200"
                         />
                     </div>
 
@@ -112,7 +113,7 @@ const UpdateMyListing = () => {
                             defaultValue={description}
                             rows="3"
                             placeholder="Write details about your listing..."
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:focus:ring-blue-500 dark:text-gray-200"
                         ></textarea>
                     </div>
 
@@ -124,14 +125,18 @@ const UpdateMyListing = () => {
                             defaultValue={contact}
                             type="text"
                             placeholder="Phone / Messenger / WhatsApp"
-                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300"
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:focus:ring-blue-500 dark:text-gray-200"
                         />
                     </div>
 
                     {/* Availability */}
                     <div>
                         <label className="block text-sm font-medium mb-1">Availability</label>
-                        <select name='availability' defaultValue={availability} className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300">
+                        <select
+                            name='availability'
+                            defaultValue={availability}
+                            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300 dark:bg-gray-800 dark:border-gray-600 dark:focus:ring-blue-500 dark:text-gray-200"
+                        >
                             <option>Available</option>
                             <option>Not Available</option>
                         </select>
@@ -145,7 +150,7 @@ const UpdateMyListing = () => {
                             defaultValue={email}
                             type="email"
                             readOnly
-                            className="w-full p-2 border border-gray-300 rounded-md bg-gray-100"
+                            className="w-full p-2 border border-gray-300 rounded-md bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
                         />
                     </div>
 
@@ -157,15 +162,15 @@ const UpdateMyListing = () => {
                             defaultValue={name}
                             type="text"
                             readOnly
-                            className="w-full p-2 border border-gray-300 rounded-md bg-gray-100"
+                            className="w-full p-2 border border-gray-300 rounded-md bg-gray-100 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200"
                         />
                     </div>
 
-                    {/* Add Button */}
+                    {/* Update Button */}
                     <div className="text-center">
                         <button
                             type="submit"
-                            className="px-6 py-2 bg-primary text-white font-medium rounded-md hover:bg-secondary transition"
+                            className="px-6 py-2 bg-primary text-white font-medium rounded-md hover:bg-secondary transition dark:bg-orange-600 dark:hover:bg-orange-700"
                         >
                             Update
                         </button>

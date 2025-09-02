@@ -37,9 +37,9 @@ const FAQ = () => {
     ];
 
     return (
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white dark:bg-gray-900 transition-colors duration-300">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl md:text-5xl font-bold text-center mb-15 text-gray-800">
+                <h2 className="text-3xl md:text-5xl font-bold text-center mb-15 text-gray-800 dark:text-gray-100">
                     Frequently Asked Questions
                 </h2>
 
@@ -48,12 +48,12 @@ const FAQ = () => {
                         <div
                             key={index}
                             tabIndex={0}
-                            className="collapse collapse-arrow border border-gray-300 bg-base-100 rounded-box"
+                            className="collapse collapse-arrow border border-gray-300 dark:border-gray-700 bg-base-100 dark:bg-gray-800 rounded-box"
                         >
-                            <div className="collapse-title text-lg font-medium">
+                            <div className="collapse-title text-lg font-medium text-gray-900 dark:text-gray-100">
                                 {faq.question}
                             </div>
-                            <div className="collapse-content text-gray-700">
+                            <div className="collapse-content text-gray-700 dark:text-gray-300">
                                 <p>{faq.answer}</p>
                             </div>
                         </div>

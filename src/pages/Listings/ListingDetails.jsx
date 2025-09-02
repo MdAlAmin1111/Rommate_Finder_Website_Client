@@ -4,7 +4,6 @@ import { AuthContext } from '../../context/AuthContext';
 import Swal from 'sweetalert2';
 
 const ListingDetails = () => {
-
     const listing = useLoaderData();
     const { userInfo } = useContext(AuthContext);
 
@@ -32,7 +31,6 @@ const ListingDetails = () => {
                 console.log(result);
                 setLikeCount(likeCount + 1);
                 setShowContact(true);
-                setShowContact(true);
                 Swal.fire({
                     title: 'Liked!',
                     text: 'Thanks for liking 💖',
@@ -45,68 +43,42 @@ const ListingDetails = () => {
     }
 
     return (
-        <div>
+        <div className="bg-white dark:bg-gray-900 min-h-screen">
             <div className="container mx-auto px-4 py-8">
-                <p className='my-2 font-bold text-error text-lg'>[ {likeCount} people interested in! ]</p>
-                <h1 className="text-3xl font-bold text-primary text-center mb-6">
+                <p className='my-2 font-bold text-error text-lg dark:text-red-400'>[ {likeCount} people interested in! ]</p>
+                <h1 className="text-3xl font-bold text-primary dark:text-orange-400 text-center mb-6">
                     {listing.title}
                 </h1>
 
-                <div className="bg-white shadow-lg rounded-lg border border-gray-200 p-6 space-y-4">
-                    <div className="flex justify-between border-b border-gray-200 py-2">
-                        <span className="font-medium text-gray-600">Location:</span>
-                        <span className="text-base-300">{listing.location}</span>
-                    </div>
-
-                    <div className="flex justify-between border-b border-gray-200 py-2">
-                        <span className="font-medium text-gray-600">Rent:</span>
-                        <span className="text-base-300">{listing.rent_amount} BDT</span>
-                    </div>
-
-                    <div className="flex justify-between border-b border-gray-200 py-2">
-                        <span className="font-medium text-gray-600">Room Type:</span>
-                        <span className="text-base-300">{listing.room_type}</span>
-                    </div>
-
-                    <div className="flex justify-between border-b border-gray-200 py-2">
-                        <span className="font-medium text-gray-600">Lifestyle Preference:</span>
-                        <span className="text-base-300">{listing.life_style_preference}</span>
-                    </div>
-
-                    <div className="flex justify-between border-b border-gray-200 py-2">
-                        <span className="font-medium text-gray-600">Description:</span>
-                        <span className="text-base-300">{listing.description}</span>
-                    </div>
-
-                    <div className="flex justify-between border-b border-gray-200 py-2">
-                        <span className="font-medium text-gray-600">Contact:</span>
-                        <span className="text-base-300">{showContact ? listing.contact : '*****'}</span>
-                    </div>
-
-                    <div className="flex justify-between border-b border-gray-200 py-2">
-                        <span className="font-medium text-gray-600">Email:</span>
-                        <span className="text-base-300">{listing.email}</span>
-                    </div>
-
-                    <div className="flex justify-between border-b border-gray-200 py-2">
-                        <span className="font-medium text-gray-600">Name:</span>
-                        <span className="text-base-300">{listing.name}</span>
-                    </div>
-
-                    <div className="flex justify-between border-b border-gray-200 py-2">
-                        <span className="font-medium text-gray-600">Availability:</span>
-                        <span className="text-base-300">{listing.availability}</span>
-                    </div>
+                <div className="bg-white dark:bg-gray-800 shadow-lg rounded-lg border border-gray-200 dark:border-gray-700 p-6 space-y-4">
+                    {[
+                        { label: "Location:", value: listing.location },
+                        { label: "Rent:", value: `${listing.rent_amount} BDT` },
+                        { label: "Room Type:", value: listing.room_type },
+                        { label: "Lifestyle Preference:", value: listing.life_style_preference },
+                        { label: "Description:", value: listing.description },
+                        { label: "Contact:", value: showContact ? listing.contact : '*****' },
+                        { label: "Email:", value: listing.email },
+                        { label: "Name:", value: listing.name },
+                        { label: "Availability:", value: listing.availability },
+                    ].map(({ label, value }) => (
+                        <div key={label} className="flex justify-between border-b border-gray-200 dark:border-gray-700 py-2">
+                            <span className="font-medium text-gray-600 dark:text-gray-300">{label}</span>
+                            <span className="text-base-300 dark:text-gray-200">{value}</span>
+                        </div>
+                    ))}
 
                     <div className="text-center mt-4">
-                        <button onClick={handleLike} className="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-500 transition">
+                        <button
+                            onClick={handleLike}
+                            className="px-4 py-2 bg-orange-600 hover:bg-orange-500 text-white rounded transition"
+                        >
                             Like
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-
     );
 };
 

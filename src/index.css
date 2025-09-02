@@ -1,47 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import "tailwindcss";
+ @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+ @import "tailwindcss";
+ @custom-variant dark (&:where(.dark, .dark *));
 
+ /* @plugin "daisyui"; */
 @plugin "daisyui" {
     themes: light --default;
 }
+ @plugin "daisyui/theme" {
+     name: "light";
+     default: true;
+     --color-base-200: #718096;
+     --color-base-300: #2d3748;
+     --color-primary: #db621f;
+     --color-secondary: #eb671e;
+ }
 
-@plugin "daisyui/theme" {
-    name: "light";
-    default: true;
+ .active {
+     color: #db621f;
+ }
 
-    /* generally used as background color  */
-
-    /* gray-600 */
-    --color-base-200: #718096;
-    /* gray-800  */
-    --color-base-300: #2d3748;
-
-    /* generally used as CTA color  */
-
-    /* orange 600 */
-    /* --color-primary: #771726; */
-    --color-primary: #db621f;
-    /* orange 700 */
-    /* --color-secondary: #AF1B2D; */
-    --color-secondary: #eb671e;
-}
-
-
-/* #AF1B2D
- #771726 */
-
-
-.active {
-    color: #db621f;
-}
-
-* {
-    font-family: "Inter", sans-serif;
-}
-
-.review {
-    color: #718096;
-    color: #2d3748;
-    color: #db621f;
-    color: #eb671e;
-}
+ * {
+     font-family: "Inter", sans-serif;
+ }
