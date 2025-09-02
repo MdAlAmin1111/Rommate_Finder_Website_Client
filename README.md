@@ -1,12 +1,94 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 🧑‍🤝‍🧑 FindMyRoomie - Client Side
 
-Currently, two official plugins are available:
+Welcome to the **FindMyRoomie** client-side project!  
+This React app uses Vite, Tailwind CSS, Daisy UI, Firebase Authentication, and connects with the backend API for a seamless roommate finding experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌐 Live Website
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔗 Live Site URL: [https://your-client-url.netlify.app](https://your-client-url.netlify.app)  
+_(Replace with your actual deployed frontend URL)_
+
+---
+
+## 🚀 Technologies Used
+
+- React (Vite)
+- Tailwind CSS & Daisy UI
+- Firebase Authentication (Email/Password & Google Sign-In)
+- fetch (for API calls)
+- React Router DOM
+- React Toastify (for notifications)
+- React Awesome Reveal (for animations)
+- React Simple Typewriter
+- React Tooltip
+
+---
+
+## 🛠 Features
+
+- User Authentication with Firebase (Login, Signup, Google Login)
+- Protected Routes for adding, updating, and viewing private listings
+- Add, Update, Delete roommate listings with full CRUD operations
+- Browse all roommate posts with pagination and search
+- Like feature on roommate details (users can like multiple times but not their own post)
+- Dark/Light mode toggle on the homepage
+- Responsive design for mobile, tablet, and desktop
+- Loading spinners and smooth animations
+- Meaningful error/success messages via Toasts
+- Integration with backend API hosted on Vercel
+
+---
+
+## 🗂 Project Structure
+/src
+├── components/ # Reusable UI components
+├── context/ # Context API for auth and global state
+│ └── AuthContext.jsx
+├── firebase/ # Firebase config and provider setup
+│ ├── AuthProvider.jsx
+│ └── firebase.config.js
+├── layouts/
+│ └── MainLayout.jsx
+├── pages/
+│ ├── Auth/
+│ │ ├── Login.jsx
+│ │ └── Signup.jsx
+│ ├── Home/
+│ │ └── Home.jsx
+│ ├── Listings/
+│ │ ├── AddListing.jsx
+│ │ ├── BrowseListing.jsx
+│ │ ├── ListingDetails.jsx
+│ │ ├── MyListing.jsx
+│ │ ├── UpdateMyListing.jsx
+│ │ ├── ErrorPage.jsx
+│ │ └── NotFound.jsx
+├── routes/
+│ ├── PrivateRoute.jsx
+│ └── Router.jsx
+├── App.jsx
+├── main.jsx
+├── index.css
+└── App.css
+
+
+---
+
+## 🔗 Related Links
+
+- 🖥️ Server Repository: [https://github.com/your-username/findmyroomie-server](https://github.com/your-username/findmyroomie-server)  
+- ⚙️ Server Live URL: [https://your-vercel-url.vercel.app](https://your-vercel-url.vercel.app)
+
+---
+
+## 📌 Notes
+
+- Replace all placeholder URLs and usernames with your actual deployed URLs and GitHub usernames.
+- Ensure your `.env` file stores all Firebase config keys securely and is not committed.
+- Make sure all API calls point to your live backend URL.
+
+---
+

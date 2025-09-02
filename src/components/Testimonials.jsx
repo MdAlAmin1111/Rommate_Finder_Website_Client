@@ -16,9 +16,9 @@ const Testimonials = () => {
         },
     ];
     return (
-        <section className="py-16 bg-white transition-all duration-300">
+        <section className="py-20 bg-white transition-all duration-300">
             <div className="container mx-auto text-center px-4">
-                <h2 className="text-3xl md:text-4xl font-bold mb-10">What Our Users Say</h2>
+                <h2 className="text-3xl md:text-5xl font-bold mb-15">What Our Users Say</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {feedbacks.map((review, idx) => (
                         <div

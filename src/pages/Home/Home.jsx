@@ -38,9 +38,11 @@ const Home = () => {
                 </Slider>
             </section>
 
+            <SectionDivider text="Finding a great roommate should be hassle free."></SectionDivider>
+
             <FeaturedRoommates></FeaturedRoommates>
 
-            <SectionDivider text="Finding a great roommate should be hassle free."></SectionDivider>
+            <SectionDivider text="A roommate search simplified"></SectionDivider>
 
             <HowItWorks></HowItWorks>
 
