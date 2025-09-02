@@ -7,7 +7,7 @@ const FeaturedRoommates = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:3000/api/featured-roommates')
+        fetch('https://rommate-finder-website-server.vercel.app/api/featured-roommates')
             .then(res => res.json())
             .then(data => {
                 setRoommates(data);

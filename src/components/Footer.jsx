@@ -9,7 +9,7 @@ const Footer = () => {
                 <div>
                     <h3 className="text-lg font-semibold mb-3">Contact Us</h3>
                     <p>Email: support@findmyroomie.com</p>
-                    <p>Phone: +880 1234-567890</p>
+                    <p>Phone: +880 1759-572081</p>
                     <p>Address: Dhaka, Bangladesh</p>
                 </div>
 

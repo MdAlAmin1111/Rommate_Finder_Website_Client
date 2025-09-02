@@ -12,7 +12,7 @@ const UpdateMyListing = () => {
         const form = e.target;
         const formData = new FormData(form);
         const toBeUpdatedDate = Object.fromEntries(formData.entries());
-        fetch(`http://localhost:3000/api/listings/update/${_id}`, {
+        fetch(`https://rommate-finder-website-server.vercel.app/api/listings/update/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

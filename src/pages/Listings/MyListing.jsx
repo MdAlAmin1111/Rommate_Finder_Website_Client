@@ -8,7 +8,7 @@ const MyListing = () => {
     const [myListingData, setMyListingData] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/api/listings/${userInfo.email}`)
+        fetch(`https://rommate-finder-website-server.vercel.app/api/listings/${userInfo.email}`)
             .then(res => res.json())
             .then(data => {
                 setMyListingData(data);
@@ -26,7 +26,7 @@ const MyListing = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/api/listings/${_id}`, {
+                fetch(`https://rommate-finder-website-server.vercel.app/api/listings/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

@@ -3,9 +3,10 @@
  @custom-variant dark (&:where(.dark, .dark *));
 
  /* @plugin "daisyui"; */
-@plugin "daisyui" {
-    themes: light --default;
-}
+ @plugin "daisyui" {
+     themes: light --default;
+ }
+
  @plugin "daisyui/theme" {
      name: "light";
      default: true;

@@ -11,7 +11,7 @@ const AddListing = () => {
         const formData = new FormData(form);
         const userData = Object.fromEntries(formData.entries());
 
-        fetch('http://localhost:3000/api/listings', {
+        fetch('https://rommate-finder-website-server.vercel.app/api/listings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

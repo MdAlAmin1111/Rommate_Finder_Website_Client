@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
             {
                 path: '/browse-listing',
                 element: <BrowseListing></BrowseListing>,
-                loader: () => fetch('http://localhost:3000/api/listings'),
+                loader: () => fetch('https://rommate-finder-website-server.vercel.app/api/listings'),
                 hydrateFallbackElement: <Loader></Loader>
             },
             {
@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <ListingDetails></ListingDetails>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/api/listings/id/${params.id}`),
+                loader: ({ params }) => fetch(`https://rommate-finder-website-server.vercel.app/api/listings/id/${params.id}`),
                 hydrateFallbackElement: <Loader></Loader>
 
             },
@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <UpdateMyListing></UpdateMyListing>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:3000/api/listings/id/${params.id}`),
+                loader: ({ params }) => fetch(`https://rommate-finder-website-server.vercel.app/api/listings/id/${params.id}`),
                 hydrateFallbackElement: <Loader></Loader>
             },
             {

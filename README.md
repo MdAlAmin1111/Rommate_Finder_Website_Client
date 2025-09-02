@@ -8,8 +8,7 @@ This React app uses Vite, Tailwind CSS, Daisy UI, Firebase Authentication, and c
 
 ## 🌐 Live Website
 
-🔗 Live Site URL: [https://your-client-url.netlify.app](https://your-client-url.netlify.app)  
-_(Replace with your actual deployed frontend URL)_
+🔗 Live Site URL: [https://findmyroomie-1b44f.web.app](https://findmyroomie-1b44f.web.app)  
 
 ---
 
@@ -79,16 +78,7 @@ _(Replace with your actual deployed frontend URL)_
 
 ## 🔗 Related Links
 
-- 🖥️ Server Repository: [https://github.com/your-username/findmyroomie-server](https://github.com/your-username/findmyroomie-server)  
-- ⚙️ Server Live URL: [https://your-vercel-url.vercel.app](https://your-vercel-url.vercel.app)
+- 🖥️ Server Repository: [https://github.com/MdAlAmin1111/Rommate_Finder_Website_Server](https://github.com/MdAlAmin1111/Rommate_Finder_Website_Server)  
+- ⚙️ Server Live URL: [https://rommate-finder-website-server.vercel.app](https://rommate-finder-website-server.vercel.app)
 
 ---
-
-## 📌 Notes
-
-- Replace all placeholder URLs and usernames with your actual deployed URLs and GitHub usernames.
-- Ensure your `.env` file stores all Firebase config keys securely and is not committed.
-- Make sure all API calls point to your live backend URL.
-
----
-

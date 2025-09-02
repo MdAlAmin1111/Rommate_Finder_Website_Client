@@ -8,7 +8,7 @@ import { auth } from '../../firebase/firebase.config';
 
 const Signup = () => {
     const [error, setError] = useState('');
-    const { createUser, setUserInfo } = useContext(AuthContext);
+    const { createUser, setUserInfo, loginWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
 
     const handleSignup = (e) => {
@@ -77,6 +77,26 @@ const Signup = () => {
 
         // form.reset();
     }
+    const handleLoginWithGoogle = () => {
+        loginWithGoogle()
+            .then(() => {
+                Swal.fire({
+                    title: "Login successful!",
+                    icon: "success",
+                    draggable: true,
+                });
+                navigate(location.state ? location.state : '/');
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setError(errorMessage);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: errorMessage,
+                });
+            });
+    };
 
     return (
         <div className='min-h-screen flex justify-center items-center mx-2 mt-10'>
@@ -118,8 +138,8 @@ const Signup = () => {
                         <hr className="flex-1 border-gray-400" />
                     </div>
 
-                    <p className='flex items-center justify-center gap-2 text-base-200 dark:text-gray-200 font-semibold cursor-pointer'>
-                        <FcGoogle size={25} />
+                    <p className='flex items-center justify-center gap-2 text-base-200 dark:text-gray-200 font-semibold'>
+                        <FcGoogle className='cursor-pointer' onClick={handleLoginWithGoogle} size={35} />
                         <span>Login with Google</span>
                     </p>
 

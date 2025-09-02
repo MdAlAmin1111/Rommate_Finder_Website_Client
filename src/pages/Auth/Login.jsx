@@ -114,7 +114,7 @@ const Login = () => {
                     </div>
 
                     <p className="flex items-center justify-center gap-2 text-base-300 font-semibold dark:text-gray-200 cursor-pointer">
-                        <FcGoogle onClick={handleLoginWithGoogle} size={25} />
+                        <FcGoogle onClick={handleLoginWithGoogle} size={35} />
                         <span>Login with Google</span>
                     </p>
                     <p className="text-center font-semibold text-base-300 dark:text-gray-300">

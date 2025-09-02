@@ -19,7 +19,7 @@ const ListingDetails = () => {
             });
             return;
         }
-        fetch(`http://localhost:3000/api/listings/like/${listing._id}`, {
+        fetch(`https://rommate-finder-website-server.vercel.app/api/listings/like/${listing._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -27,8 +27,8 @@ const ListingDetails = () => {
             body: JSON.stringify({ likeCount: likeCount + 1 }),
         })
             .then(res => res.json())
-            .then(result => {
-                console.log(result);
+            .then(() => {
+               
                 setLikeCount(likeCount + 1);
                 setShowContact(true);
                 Swal.fire({
