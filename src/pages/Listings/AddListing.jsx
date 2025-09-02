@@ -35,6 +35,7 @@ const AddListing = () => {
 
     return (
         <div className="max-w-3xl mx-auto mt-10 p-6 border border-gray-300 rounded-xl shadow-sm bg-white">
+
             <h2 className="text-2xl font-semibold mb-6 text-center text-base-300">
                 Add Roommate Listing
             </h2>

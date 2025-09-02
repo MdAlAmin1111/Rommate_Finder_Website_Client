@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
 
 const Navbar = () => {
     const { userInfo, userLogout } = useContext(AuthContext);
@@ -30,7 +32,7 @@ const Navbar = () => {
                     </div>
                     <div className='flex items-center gap-3'>
                         <img className='w-7' src='/happy.png' alt="" />
-                        <p className="text-3xl font-bold text-base-300 hidden sm:block">Find<span className='text-secondary'>My</span>Roomie<span className='text-secondary'>.</span></p>
+                        <p data-tooltip-id="my-tooltip" data-tooltip-content="Need a roommate? You're at the right place!" className="text-3xl font-bold text-base-300 hidden sm:block">Find<span className='text-secondary'>My</span>Roomie<span className='text-secondary'>.</span></p>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
@@ -72,6 +74,7 @@ const Navbar = () => {
 
 
             </div>
+            <Tooltip id="my-tooltip" style={{ backgroundColor: "rgb(255, 153, 0)", color: "#fff" }} />
         </div>
     );
 };
