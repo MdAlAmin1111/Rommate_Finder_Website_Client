@@ -53,7 +53,6 @@ const Navbar = () => {
                     userInfo
                         ?
                         <div className='navbar-end space-x-4'>
-                            <ThemeToggle></ThemeToggle>
                             <div className="dropdown dropdown-end dropdown-hover relative">
                                 <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                     <div className="w-10 rounded-full ring-2 ring-primary ring-offset-2 ring-offset-base-100">
