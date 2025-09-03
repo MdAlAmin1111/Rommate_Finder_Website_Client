@@ -40,7 +40,7 @@ const Navbar = () => {
                         </p>
                     </div>
 
-
+                    <ThemeToggle></ThemeToggle>
                 </div>
 
                 <div className="navbar-center hidden lg:flex">
@@ -79,7 +79,7 @@ const Navbar = () => {
                         </div>
                         :
                         <div className="navbar-end space-x-4">
-                            <ThemeToggle></ThemeToggle>
+
                             <Link to={'/login'} className="btn bg-primary hover:bg-secondary border-none text-white">Login</Link>
                             <Link to={'/signup'} className="btn bg-primary hover:bg-secondary border-none text-white">Signup</Link>
                         </div>

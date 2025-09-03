@@ -26,12 +26,9 @@ const ThemeToggle = () => {
   };
 
   return (
-    <button
-      onClick={toggleTheme}
-      className="px-2 py-2 text-[10px] sm:text-sm rounded bg-primary text-white hover:bg-secondary transition"
-    >
-      Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
-    </button>
+    <div onClick={toggleTheme} className='flex w-8 h-8 bg-gray-200 ml-8 rounded-sm'>
+      {theme === 'light' ? <img className='w-full h-full bg-white rounded-sm' src='/day-mode.png' alt="" /> : <img className='w-full' src='/night-mode.png' alt="" />}
+    </div>
   );
 };
 
